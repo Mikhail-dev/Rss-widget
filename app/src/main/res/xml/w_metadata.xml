@@ -1,0 +1,9 @@
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/w_weather"
+    android:minHeight="180dp"
+    android:minWidth="250dp"
+    android:resizeMode="horizontal|vertical"
+    android:configure="com.mikhaildev.yotawidget.ui.activity.ConfigActivity"
+    android:updatePeriodMillis="2400000">
+</appwidget-provider>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="plase_wait">Пожалуйста, подождите…</string>
+    <string name="server_error">Ошибка сервера</string>
+    <string name="error_code_frmt">Ошибка. Код ошибки: %1$d</string>
+    <string name="internet_connection_error">Ошибка интернет соединения</string>
+    <string name="details">Детали</string>
+    <string name="news_not_found">Увы, такой новости не существует</string>
+    <string name="parse_error">Некорректный адрес RSS Ленты. Не удаётся получить данные.</string>
+    <string name="unknown_error">Неизвестная ошибка</string>
+    <string name="incorrect_url_link">Некорректный URL адресс RSS ленты</string>
+</resources>

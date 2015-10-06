@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mikhaildev.yotawidget">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MainTheme">
+
+        <service
+            android:name="com.mikhaildev.yotawidget.WidgetService">
+
+            <intent-filter>
+                <action android:name="com.mikhaildev.yotawidget.UPDATE_NEWS" />
+                <action android:name="com.mikhaildev.yotawidget.STOP_UPDATING_NEWS" />
+            </intent-filter>
+
+        </service>
+
+        <receiver
+            android:name=".widget.Widget"
+            android:icon="@drawable/icon"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.mikhaildev.yotawidget.ACTION_UPDATE_WIDGET_NEWS_SUCCESS" />
+                <action android:name="com.mikhaildev.yotawidget.ACTION_UPDATE_WIDGET_NEWS_ERROR" />
+                <action android:name="com.mikhaildev.yotawidget.ACTION_PREVIOUS_NEWS" />
+                <action android:name="com.mikhaildev.yotawidget.ACTION_NEXT_NEWS" />
+
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/w_metadata">
+            </meta-data>
+        </receiver>
+
+        <receiver android:name="com.mikhaildev.yotawidget.SystemEventReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.mikhaildev.yotawidget.database.NewsProvider"
+            android:exported="false"
+            android:multiprocess="true"
+            android:authorities="com.mikhaildev.yotawidget.database.NewsProvider" />
+
+        <activity
+            android:name="com.mikhaildev.yotawidget.ui.activity.ConfigActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE">
+                </action>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
